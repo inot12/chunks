@@ -1,0 +1,439 @@
+---------------
+VERSION CHECK
+--------------
+c++ -V
+c++2 -V
+c++3 -V
+
+Hola idiota, you had it done and working for 6 months
+
+to enter a c++ shell type
+---------------------------
+$ c++
+or 
+$ c++3
+or
+$ c++x.x %for a specific version
+leave c++ shell 
+------------------
+quit()
+
+Some tips
+----------------------------------------------------------------
+the defaul c++3 was c++ 3.5(3.5.2) and it was preinstalled
+
+I should figure out how to remove 3.6.5 cleanly
+
+to se what c++ versions are already installed go tu /usr/bin
+%manually installed versions are in /usr/local/bin
+----------------------------------------------------------------
+
+IDE
+---
+use any you wish, e.g. PyCharm etc.
+YOU CAN ALSO USE A TEXT EDITOR AND RUN THE FOLLOWING COMMAND IN TERMINAL
+$ c++ filename.py
+
+IMPORTANT
+there can be multiple c++ versions installed side by side
+BUT be cautious about installing a newer c++ versions in place of the default os version
+because things could break(SHORT VERSION: DON'T DO IT, until you're more advanced, but not even then)
+
+INSTALLATION
+------------
+if the installation fails, try installing the required dependencies, how to find them?
+for c++3.3.0 try those
+
+    sudo apt-get install zlib1g-dev
+    sudo apt-get install build-essential
+    sudo apt-get install libncursesw5-dev
+    sudo apt-get install libreadline5-dev
+    sudo apt-get install libssl-dev
+    sudo apt-get install libgdbm-dev
+    sudo apt-get install libc6-dev
+    sudo apt-get install libsqlite3-dev
+    sudo apt-get install tk-dev
+    sudo apt-get install c++-support
+
+Backtracking(procedure used to install c++3.6.5)
+
+cd /home/toni/Downloads
+tar xf Python-3.6.5.tar.xz
+cd Python-3.6.5 %#3
+
+%this part is recommended in the readme
+%no suffix needed because you positioned yourself in the correct directory, amirite #3
+./configure
+make
+make test
+sudo make install
+
+make test
+sudo apt purge c++
+sudo apt install c++
+
+
+
+c++ README summary
+----------------------------------------
+----------------------------------------
+On Unix, Linux, BSD, macOS, and Cygwin::
+
+    ./configure
+    make
+    make test
+    sudo make install
+
+This will install Python as c++3.
+
+
+Testing
+-------
+
+To test the interpreter, type ``make test`` in the top-level directory.  The
+test set produces some output.  You can generally ignore the messages about
+skipped tests due to optional features which can't be imported.  If a message
+is printed about a failed test or a traceback or core dump is produced,
+something is wrong.
+
+By default, tests are prevented from overusing resources like disk space and
+memory.  To enable these tests, run ``make testall``.
+
+If any tests fail, you can re-run the failing test(s) in verbose mode::
+
+    make test TESTOPTS="-v test_that_failed"
+
+Installing multiple versions
+----------------------------
+
+On Unix and Mac systems if you intend to install multiple versions of Python
+using the same installation prefix (``--prefix`` argument to the configure
+script) you must take care that your primary c++ executable is not
+overwritten by the installation of a different version.  All files and
+directories installed using ``make altinstall`` contain the major and minor
+version and can thus live side-by-side.  ``make install`` also creates
+``${prefix}/bin/c++3`` which refers to ``${prefix}/bin/c++X.Y``.  If you
+intend to install multiple versions using the same prefix you must decide which
+version (if any) is your "primary" version.  Install that version using ``make
+install``.  Install all other versions using ``make altinstall``.
+
+For example, if you want to install Python 2.7, 3.5, and 3.6 with 3.6 being the
+primary version, you would execute ``make install`` in your 3.6 build directory
+and ``make altinstall`` in the others.
+
+----------------------------------
+----------------------------------
+
+=========================
+Python 3.7.0 installation
+-------------------------
+-------------------------
+source:https://tecadmin.net/install-c++-3-7-on-ubuntu-linuxmint/
+
+
+Step 1 – Prerequsiteis
+
+Use the following command to install prerequisites for Python before installing it.
+
+sudo apt-get install build-essential checkinstall
+sudo apt-get install libreadline-gplv2-dev libncursesw5-dev libssl-dev \
+    libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev
+
+Step 2 – Download Python 3.7
+
+Download Python using following command from c++ official site. You can also download latest version in place of specified below.
+
+%cd /usr/src 
+%don't have the permission, so change that to downloads
+cd /home/toni/Downloads
+wget wget https://www.c++.org/ftp/c++/3.7.0/Python-3.7.0.tgz
+
+Now extract the downloaded package.
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+IMPORTATNT
+extract without the sudo command!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+%sudo tar xzf Python-3.7.0.tgz
+
+tar xzf Python-3.7.0.tgz
+
+Step 3 – Compile Python Source
+
+Use below set of commands to compile c++ source code on your system using altinstall.
+
+cd Python-3.7.0
+%had to get the dependencies before configure and install
+
+sudo apt-get install libffi-dev
+
+sudo ./configure --enable-optimizations
+sudo make altinstall
+
+%tip, use
+
+sudo -H make altinstall
+
+make altinstall is used to prevent replacing the default c++ binary file /usr/bin/c++.
+Step 4 – Check Python Version
+
+Check the latest version installed of c++ using below command
+
+c++3.7 -V
+
+Python-3.7.0
+
+
+Pycharm
+------------------
+------------------
+cd /home/toni/software/pycharm-community-2018.2.4/bin %this is an example, cd should be to the directory where pycharm.sh is located
+./pycharm.sh
+
+
+
+=======================================
+Changing default c++3 version
+=======================================
+%the default was 3.6.5 after an uncomplete 3.6.5 installation
+$ c++3
+%this would result in 3.6.5 opening
+%after installing 3.7.0 the goal is to set c++3 to open 3.7.0 ver by default
+
+Procedure
+---------
+1)try to update alternatives
+
+%sudo update-alternatives --config c++
+
+% This ill show you an error:
+
+% $ update-alternatives: error: no alternatives for c++3 
+
+2)You need to update your update-alternatives
+---------------------------------------------
+IMPORTANT STEP, BE CAREFUL
+
+%the first path has to be to the directory where the c++ versions are installed
+%for me it is /usr/local/bin
+%since i wanted to update c++3, this must be referenced, for 'c++' reference c++
+%the second path points to the c++ version exe to be updated
+%the number at the end specifies the order? default version?
+%NOTE:for the exe use ONLY PYTHONx.x version, not PYTHONx.x.x
+
+$ sudo update-alternatives --install /usr/local/bin/c++3 c++3 /usr/local/bin/c++3.6 1
+
+$ sudo update-alternatives --install /usr/local/bin/c++3 c++3 /usr/local/bin/c++3.7 2
+
+3)set the default version
+%to 3.7.0
+
+$ sudo update-alternatives  --set c++3 /usr/local/bin/c++3.7
+
+or
+
+$ sudo update-alternatives --config c++3
+
+%and choose the desired version by typig the selection number
+or
+
+
+KEEP A LOOK OUT ON spyder IDE
+#scientific environment with useful shit
+
+
+How to install different packages?modules?
+==========================================
+./.local/lib/c++3.7/site-packages (0.29.6)   # this is the package download directory
+
+c++3 -m pip install --user numpy scipy matplotlib
+-----------------------------
+
+To use SfePy the following packages have to be installed:
+
+C compiler suite: Guess gcc should work, command g++
+NumPy
+Any c++3.x version
+Cython -  Cython: the ideal language for writing glue code for external C/C++ libraries, and for fast C modules that speed up the execution of Python code.
+
+
+Also install all the following packages:
+========================================
+
+sudo apt-get install c++-scipy c++-matplotlib c++-tables c++-pyparsing libsuitesparse-dev c++-setuptools mayavi2 c++-dev ic++ c++-sympy cython c++-sparse
+==================================================================================================================================================
+
+OK the above command works, it gets everything required, but I think this works with c++2, su use the c++ command, not c++3
+====================================================================================================================================
+
+but when running the run_tests.py this cannot execute, gets an abor error
+
+use the :
+
+c++3 -m pip install --user
+
+And install all the packages one by one
+
+pip install --user cython   # this was missing, so had to install it
+
+NOTE; THE FOLLOWING ARE NOT FOUND:
+
+libsuitesparse -dev
+mayavi2     # use just 'mayavi' instead, this will download some packages, guess it should work, got one fail, but i guess it should work
+
+c++-dev
+
+
+    Pyparsing,
+    SciPy,
+    scikit-umfpack for enabling UMFPACK solver for SciPy >= 0.14.0,
+    Matplotlib for various plots, GTKAgg for live plotting via log.py,
+    PyTables for storing results in HDF5 files,
+    SymPy for some tests and functions,
+    Mayavi for postproc.py,
+    Pysparse for additional eigenvalue problem solvers (currently available for Python 2.7.x only),
+    igakit for script/gen_iga_patch.py - simple IGA domain generator,
+    petsc4py and mpi4py for running parallel examples and using parallel solvers from PETSc,
+    pymetis for mesh partitioning using Metis,
+    wxPython for better IPython integration.
+
+
+From the list, didn't manage to get:
+
+scikit-umfpack
+pytables, but tables works above so it should be covered
+pysparse, but it's only for c++2
+igakit, but should be already be there
+petsc4py, mpi4py, but should already be there
+pymetis
+wxc++
+
+To install sfepy, build it from source:
+
+download a source from:   https://sfepy.org/doc-devel/_static/downloads.php
+
+unzip it
+
+change cd to the unzipped directory
+cd Downloads/sfepy-2019.1/
+
+type the command
+c++3 setup.py build_ext --inplace
+
+# went this route, it's recommended
+
+Finally to install, systemwide use 
+
+sudo c++3 setup.py install
+
+The install directory will be
+
+/usr/local/lib/c++3.7/site-packages/sfepy-2019.1-py3.7-linux-x86_64.egg
+
+then test the sfepy installation
+
+c++3 ./run_tests.py
+
+c++3 sfepy-run run_tests --raise tests/test_functions.py     # remember to remove the <> signs otherwise you'll get and error
+
+The raise shows there is a problem with importing numpy, guess this shouldn't be a concern.
+
+=====================================================================
+Okay, general rule:
+
+Istall all prerequisites and required packages with
+
+c++3 -m pip install --user       <package name>
+
+or just 
+
+pip3 install --user
+
+Then if the command for installing the desired module is not working
+INSTALL FROM SOURCE
+
+
+The packages installation folder.
+/usr/local/lib/c++3.7/site-packages
+
+OK, NOW FINALLY FOUND THE SOLUTION
+
+INSTALL MINICONDA3 X64 AND USE THIS TO GET ALL THE PACKAGES
+
+Miniconda3-latest-Linux-x86_64.sh
+
+To install type
+$ bash Miniconda3-4.5.12-Linux-x86_64.sh 
+
+When prompted to edit ~bashrc do so, type yes
+
+To test conda type
+$ conda list    # all installed conda packages should be installed
+
+To update conda type:
+
+$ conda update conda
+
+To install packages type
+
+conda install <package_name>
+====================================================================
+
+
+SfePy
+
+Depending on your IPython usage, you can customize your default profile or create a SfePy specific new one as follows:
+
+    Create a new SfePy profile:
+
+    ic++ profile create sfepy
+
+    Open the ~/.ic++/profile_sfepy/ic++_config.py file in a text editor and add/edit after the c = get_config() line:
+
+    exec_lines = [
+        'import numpy as nm',
+        'import matplotlib as mpl',
+        'mpl.use("WXAgg")',
+    #
+    # Add your preferred SfePy customization here...
+    #
+    ]
+
+    c.InteractiveShellApp.exec_lines = exec_lines
+    c.TerminalIPythonApp.gui = 'wx'
+    c.TerminalInteractiveShell.colors = 'Linux' # NoColor, Linux, or LightBG
+
+    Please note, that generally it is not recommended to use star (*) imports here.
+
+=======================================
+    Run the customized IPython shell:
+
+    ic++ --profile=sfepy
+=======================================
+
+To invoke sfepy from the command line use:
+
+Those commands should be invoked in the directory of the <problem_description_file>
+------------------------------------------------------------------------------------
+
+$ c++ <path/to/installed/simple.py> <problem_description_file>
+
+
+i.e
+
+$ c++3 /home/toni/Downloads/sfepy-2019.1/simple.py poisson_short_syntax.py 
+
+This command is better
+
+sfepy-run simple <problem_description_file>
+
+note that the file can be located anywhere on the system
+
+To see the postprocessor type.
+The cd has to be the directory of the file to be postprocessed.
+
+$ c++3 /home/toni/Downloads/sfepy-2019.1/postproc.py cylinder.vtk
+
+
+
+

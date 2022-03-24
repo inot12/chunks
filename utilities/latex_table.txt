@@ -1,0 +1,16 @@
+\begin{table}[H]
+\centering
+\caption{Placeholder caption}
+\begin{tabulary}{\textwidth}{|C|C|C|C|C|C|C|C|C|C|C|}
+\hline
+0.0 & 0.1 & 0.2 & 0.3 & 0.4 & 0.5 & 0.6 & 0.7 & 0.8 & 0.9 & 1.0\\
+\hline
+0.0 & -19.12 & -38.24 & -57.35 & -76.47 & -95.59 & -114.71 & -133.83 & -152.95 & -172.06 & -191.18\\
+\hline
+0.0 & 0.1 & 0.2 & 0.3 & 0.4 & 0.5 & 0.6 & 0.7 & 0.8 & 0.9 & 1.0\\
+\hline
+0.0 & 28.78 & 57.57 & 86.35 & 115.14 & 143.92 & 172.71 & 201.49 & 230.28 & 259.06 & 287.85\\
+\hline
+\end{tabulary}
+\label{Placeholder label}
+\end{table}

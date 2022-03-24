@@ -1,0 +1,35 @@
+=================
+INTRODUCTION
+=================
+
+#some basic info on programming
+
+Check: Think python, ch. The way of the program
+
+First-class object
+------------------
+there are no restrictions on the object's use. It's the same as any other object.
+'in python, everything is an object' -> this implies that everything is a 'first-class object' which means it's susceptible to all operations, but not quite, should be interpreted loosely; doesn't mean everything is first class
+
+A first class object is an entity that can be dynamically created, destroyed, passed to a function, returned as a value, and have all the rights as other variables in the programming language have. 
+
+Well-structured with invalid tokens:
+------------------------------------
+This is a! $sentence.
+
+Valid tokens with bad structuring:
+----------------------------------
+The played the lute boy.
+
+=====================================
+IMPORTANT STUFF
+---------------------------------
+The code written in other advanced scripts usually uses different modules with their appropriate functions.
+For example, when you see a bunch of unrecognizable lines where you have
+
+something.something
+
+this is equivalent to 
+
+module.function
+=====================================
